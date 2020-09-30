@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {ProductConsumer} from '../context';
 import {Link} from 'react-router-dom';
 
 export default class Product extends Component {
@@ -11,7 +10,10 @@ export default class Product extends Component {
                 <div className="container">
                     <div className="card">
                         <div className="img-container p-5" onClick={console.log('clicked')}>
-                            <Link to="/details">
+                            <Link to={{
+                                pathname:'/details',
+                                id: id
+                            }}>
                                 <img src={img} alt="product" className="card-img-top"/>
                             </Link>
                             <button className="cart-btn" disabled={inCart?true:false} onClick={()=>{console.log('added to cart')}}>
